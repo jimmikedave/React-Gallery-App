@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Photo from './Components/Photo';
 import Nav from './Components/Nav';
+import config from './config.js';
 
 
 
@@ -14,15 +15,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    fetch('https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=c3983561631844a85a541554df0bd57b&tags=sunsets&per_page=24&format=json&nojsoncallback=1')
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ pics: responseData.photos.photo });
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
   }
 
   performSearch = () => {
-    
+
   }
 
   render() {
-    console.log('test');
+    console.log(this.state.pics);
     return (
       <div className="container"> 
           <form className="search-form">
