@@ -13,6 +13,14 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+
+  }
+
+  performSearch = () => {
+    
+  }
+
   render() {
     console.log('test');
     return (
