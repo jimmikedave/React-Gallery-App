@@ -5,7 +5,7 @@ import Nav from './Components/Nav';
 import PhotoContainer from './Components/PhotoContainer';
 import config from './config.js';
 
-
+const apiKey = process.env.REACT_APP_FLICKR_API_KEY;
 
 class App extends Component {
 
@@ -17,8 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(<config />)
-    axios.get('https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=c3983561631844a85a541554df0bd57b&tags=sunsets&per_page=24&format=json&nojsoncallback=1')
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=sunsets&per_page=24&format=json&nojsoncallback=1`)
   .then(response => {
     this.setState({
       pics: response.data.photos.photo
