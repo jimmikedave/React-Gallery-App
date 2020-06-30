@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(<config />)
     axios.get('https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=c3983561631844a85a541554df0bd57b&tags=sunsets&per_page=24&format=json&nojsoncallback=1')
   .then(response => {
     this.setState({
@@ -32,8 +33,11 @@ class App extends Component {
 
   }
 
+
+  
+
   render() {
-    console.log(this.state.pics);
+    //console.log(this.state.pics);
     return (
       <div className="container"> 
         <SearchForm />  
