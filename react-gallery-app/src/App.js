@@ -3,7 +3,10 @@ import axios from 'axios';
 import SearchForm from './Components/SearchForm';
 import Nav from './Components/Nav';
 import PhotoContainer from './Components/PhotoContainer';
-
+import {
+  BrowserRouter,
+  Route
+} from 'react-router-dom';
 
 const apiKey = process.env.REACT_APP_FLICKR_API_KEY;
 
@@ -34,20 +37,19 @@ class App extends Component {
       });
   }
 
-
-  
-
   render() {
     return (
-      <div className="container"> 
-        <SearchForm onSearch={this.performSearch} />  
-        <Nav />
-        {
-          (this.state.loading)
-          ? <p>Loading...</p>
-          : <PhotoContainer data={this.state.pics} />
-        }
-      </div>
+      <BrowserRouter>
+        <div className="container"> 
+          <SearchForm onSearch={this.performSearch} />  
+          <Nav />
+          {
+            (this.state.loading)
+            ? <p>Loading...</p>
+            : <PhotoContainer data={this.state.pics} />
+          }
+        </div>
+      </BrowserRouter>
     );
   }
 }
