@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SearchForm from './Components/SearchForm';
-import Nav from './Components/Nav';
+import Nav from './navigation/Nav';
 import PhotoContainer from './Components/PhotoContainer';
 import {
   BrowserRouter,
@@ -9,6 +9,8 @@ import {
 } from 'react-router-dom';
 
 const apiKey = process.env.REACT_APP_FLICKR_API_KEY;
+
+// App component
 
 class App extends Component {
 
@@ -48,6 +50,7 @@ class App extends Component {
             ? <p>Loading...</p>
             : <PhotoContainer data={this.state.pics} />
           }
+          
         </div>
       </BrowserRouter>
     );
