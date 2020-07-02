@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
    
 export default class Nav extends Component{
@@ -11,12 +11,11 @@ export default class Nav extends Component{
     
             <div className="main-nav">
                  <ul>
-                  <li><NavLink to='/Cats'>Cats</NavLink></li>
+                  <li><NavLink to='/Cacti'>Cacti</NavLink></li>
                   <li><NavLink to='/Dogs'>Dogs</NavLink></li>
-                  <li><NavLink to='/Computers'>Computers</NavLink></li>
+                  <li><NavLink to='/Blobfish'>Blobfish</NavLink></li>
                  </ul>
             </div>
-        
         );
     }
 };

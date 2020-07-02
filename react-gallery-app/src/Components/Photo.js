@@ -15,7 +15,7 @@ const Photo = (props) => {
 
     return (
             <li>
-                <img src={url} alt="" />
+                <img src={url} />
             </li>
         )
     }
