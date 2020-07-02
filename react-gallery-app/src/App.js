@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SearchForm from './Components/SearchForm';
-import Nav from './navigation/Nav';
+import Nav from './Components/Nav';
 import PhotoContainer from './Components/PhotoContainer';
 import {
   BrowserRouter,
@@ -10,7 +10,6 @@ import {
 
 const apiKey = process.env.REACT_APP_FLICKR_API_KEY;
 
-// App component
 
 class App extends Component {
 
@@ -26,7 +25,7 @@ class App extends Component {
     this.performSearch();
   }
 
-  performSearch = (query = 'sunsets') => {
+  performSearch = (query) => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
@@ -50,7 +49,6 @@ class App extends Component {
             ? <p>Loading...</p>
             : <PhotoContainer data={this.state.pics} />
           }
-          
         </div>
       </BrowserRouter>
     );

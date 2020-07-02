@@ -2,8 +2,7 @@ import React from 'react';
 import Photo from './Photo';
 import NotFound from './NotFound';
 
-//in charge of how the list looks
-//Need ID, server ID, farm ID, and sercret to show API image
+
 const PhotoContainer = props => {
     
     const results = props.data;
