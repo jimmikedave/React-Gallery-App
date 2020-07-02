@@ -11,6 +11,7 @@ class SearchForm extends Component {
         this.setState({ searchText: e.target.value });
       }
       
+      //Updates the tag and path URL when search is submitted
       handleSubmit = e => {
         e.preventDefault();
         this.props.onSearch(this.query.value);

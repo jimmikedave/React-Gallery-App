@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import SearchForm from './Components/SearchForm';
-import Nav from './Components/Nav';
-import PhotoContainer from './Components/PhotoContainer';
 import {
   BrowserRouter,
   Route,
   Switch
 } from 'react-router-dom';
 
+//App Components
+import SearchForm from './Components/SearchForm';
+import Nav from './Components/Nav';
+import PhotoContainer from './Components/PhotoContainer';
+
+//Import apiKey from .env
 const apiKey = process.env.REACT_APP_FLICKR_API_KEY;
 
 class App extends Component {
@@ -25,6 +28,7 @@ class App extends Component {
     this.performSearch();
   }
 
+  //Fetches Flickr API and moves the data into the pics array
   performSearch = (query = 'Brooklyn') => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
@@ -49,6 +53,7 @@ class App extends Component {
               data={this.state.pics}
               performSearch={this.performSearch} />}
             />
+            {/* The tag clicked will pass in the route path to the PhotoContainer via match */}
             <Route path="/:query" render={({ match }) => <PhotoContainer
               match={match}
               data={this.state.pics}

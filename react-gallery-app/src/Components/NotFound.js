@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Renders when 0 results are found
 const NotFound = () => {
 return (
     <li className="not-found">

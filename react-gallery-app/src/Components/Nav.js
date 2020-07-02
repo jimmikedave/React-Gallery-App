@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom';
    
 export default class Nav extends Component{
 
+    //Creates the paths for Cacti, Dogs, and Blobfish
     render() {
         
 
