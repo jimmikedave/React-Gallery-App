@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   //Fetches Flickr API and moves the data into the pics array
-  performSearch = (query = 'Brooklyn') => {
+  performSearch = (query = 'Snowy Mountain') => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
